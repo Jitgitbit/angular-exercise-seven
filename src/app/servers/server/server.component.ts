@@ -17,11 +17,11 @@ export class ServerComponent implements OnInit {
     ) { }
 
   ngOnInit() {
-    const id = this.route.snapshot.params['id'];
+    const id = +this.route.snapshot.params['id'];                             // the + will ensure that the id is treated as a number instead of a string !!!
     this.server = this.serversService.getServer(id);
     this.route.params.subscribe(                                               // ready for changes !!
       (params: Params) => {
-        this.server = this.serversService.getServer(params['id']);
+        this.server = this.serversService.getServer(+params['id']);           // the + will ensure that the id is treated as a number instead of a string !!!
       }
     )
   }
