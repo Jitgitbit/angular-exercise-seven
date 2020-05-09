@@ -15,10 +15,14 @@ const appRoutes: Routes = [
   {path: 'users', component: UsersComponent, children:[
     {path: ':id/:name', component: UserComponent},          //the colon indicates that it has to be dynamic
   ]},
-  {path: 'servers', canActivate:[AuthGuardService], component: ServersComponent, children:[
-    {path: ':id', component: ServerComponent},
-    {path: ':id/edit', component: EditServerComponent}
-  ]},
+  {path: 'servers', 
+    // canActivate:[AuthGuardService], 
+    canActivateChild:[AuthGuardService], 
+    component: ServersComponent, 
+    children:[
+      {path: ':id', component: ServerComponent},
+      {path: ':id/edit', component: EditServerComponent}
+    ]},
   {path: 'not-found', component: PageNotFoundComponent},
   {path: '**', redirectTo: '/not-found'}                      // THE ORDER IS SUPER IMPORTANT, THE GENERIC PATH ** HAS TO BE THE VERY LAST ONE !!!!!!!!!!!
 ];                                                           // IF IT WOULD BE ON TOP, YOU WOULD ALWAYS BE REDIRECTED
