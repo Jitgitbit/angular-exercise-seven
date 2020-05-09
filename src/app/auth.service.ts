@@ -12,7 +12,7 @@ export class AuthService {                                // OUR FAKE AUTH FOR T
       (resolve, reject) => {
         setTimeout(()=>{
           resolve(this.loggedIn);
-        }, 800);
+        }, 500);
       }
     );
     return promise;
