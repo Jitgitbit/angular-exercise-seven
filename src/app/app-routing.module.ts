@@ -34,7 +34,7 @@ const appRoutes: Routes = [
 @NgModule({
   imports: [ 
     RouterModule.forRoot(appRoutes, {useHash: true}),        //this will tell the webserver to only care about the part before the # !!!
-  ],
+  ],                                                        //the webserver always parses the URL, so this can be of critical importance
   exports: [RouterModule]
 })
 export class AppRoutingModule {}
