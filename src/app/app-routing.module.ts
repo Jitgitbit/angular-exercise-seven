@@ -33,7 +33,7 @@ const appRoutes: Routes = [
 
 @NgModule({
   imports: [ 
-    RouterModule.forRoot(appRoutes),
+    RouterModule.forRoot(appRoutes, {useHash: true}),        //this will tell the webserver to only care about the part before the # !!!
   ],
   exports: [RouterModule]
 })
